@@ -1,8 +1,5 @@
 import galleryItems from '../gallery-items.js'
-//import galleryList from '../gallery-items'
 const galleryRef = document.querySelector('.js-gallery')
-console.dir(galleryRef);
-console.log(galleryItems);
 const createElement = (element) =>
 { 
     const galleryItem = document.createElement('li')
@@ -26,6 +23,5 @@ const createElement = (element) =>
 }
 
 const elements = galleryItems.map(createElement)
-console.log(elements);
 galleryRef.append(...elements)
 
