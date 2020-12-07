@@ -1,27 +1,24 @@
-import galleryItems from '../gallery-items.js'
-const galleryRef = document.querySelector('.js-gallery')
-const createElement = (element) =>
-{ 
-    const galleryItem = document.createElement('li')
-    galleryItem.setAttribute('class', 'gallery__item')
-    
-    const galleryLink = document.createElement('a')
-    galleryLink.setAttribute('class', 'gallery__link')
+import galleryItems from "../gallery-items.js";
+const galleryRef = document.querySelector(".js-gallery");
+const createElement = (element, index) => {
+  const galleryItem = document.createElement("li");
+  galleryItem.setAttribute("class", "gallery__item");
 
-    const galletyImg = document.createElement('img')
-    galletyImg.setAttribute('class', 'gallery__image')
+  const galleryLink = document.createElement("a");
+  galleryLink.setAttribute("class", "gallery__link");
 
-    galletyImg.setAttribute('alt', element.description)
-    galletyImg.setAttribute('src', element.preview)
-    galletyImg.setAttribute('data-source', element.original)
-    galletyImg.setAttribute('data-index', galleryItems.indexOf(element))
-    galleryLink.appendChild(galletyImg)
-    galleryItem.appendChild(galleryLink)
+  const galletyImg = document.createElement("img");
+  galletyImg.setAttribute("class", "gallery__image");
 
-    return galleryItem
-    
-}
+  galletyImg.setAttribute("alt", element.description);
+  galletyImg.setAttribute("src", element.preview);
+  galletyImg.setAttribute("data-source", element.original);
+  galletyImg.setAttribute("data-index", index);
+  galleryLink.appendChild(galletyImg);
+  galleryItem.appendChild(galleryLink);
 
-const elements = galleryItems.map(createElement)
-galleryRef.append(...elements)
+  return galleryItem;
+};
 
+const elements = galleryItems.map(createElement);
+galleryRef.append(...elements);
